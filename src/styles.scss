@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+$grey: rgb(61, 61, 61);
+$black: rgb(0,0,0);
+$blue: rgb(0, 124, 145);
+
+body {
+    background-color: $black;
+}
+
+.title {
+    color: $black;
+    display: flex;
+    justify-content: center;
+}

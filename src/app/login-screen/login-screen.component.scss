@@ -1,0 +1,18 @@
+@use 'src/styles.scss' as m;
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+  }
+  
+  .card {
+    background-color: m.$grey;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 75rem;
+    height: 30rem;
+  }
