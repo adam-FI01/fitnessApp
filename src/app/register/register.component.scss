@@ -1,0 +1,28 @@
+@use 'src/styles.scss' as m;
+
+.title {
+    font-family: m.$title;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1rem;
+}
+
+::ng-deep {
+    .input {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: center;
+        margin-bottom: 2em;
+    }
+}
+
+a {
+    padding-left: 7rem;
+    color: antiquewhite;
+}
+
+a:hover {
+    color: white;
+}

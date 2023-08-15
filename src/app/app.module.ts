@@ -5,14 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { RegisterComponent } from './register/register.component';
-import { ReturningCustomerloginComponent } from './returning-customerlogin/returning-customerlogin.component';
+import { InputComponent } from './input/input.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginScreenComponent,
     RegisterComponent,
-    ReturningCustomerloginComponent
+    InputComponent,
   ],
   imports: [
     BrowserModule,

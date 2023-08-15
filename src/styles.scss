@@ -1,14 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat&display=swap');
+
+
 /* You can add global styles to this file, and also import other style files */
 $grey: rgb(61, 61, 61);
 $black: rgb(0,0,0);
 $blue: rgb(0, 124, 145);
 
 body {
-    background-color: $black;
+    background-color: $blue;
 }
 
 .title {
-    color: $black;
+    color: white;
     display: flex;
     justify-content: center;
 }
+
+// fonts //
+$title: 'Montserrat', sans-serif;
+
+@Import 'semantic-ui-css/semantic.css'
