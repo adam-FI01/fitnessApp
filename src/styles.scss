@@ -10,6 +10,11 @@ body {
     background-color: $blue;
 }
 
+.container {
+    position: relative;
+    top: 15%;
+}
+
 .title {
     color: white;
     display: flex;
@@ -19,4 +24,5 @@ body {
 // fonts //
 $title: 'Montserrat', sans-serif;
 
-@Import 'semantic-ui-css/semantic.css'
+@Import 'semantic-ui-css/semantic.css';
+
