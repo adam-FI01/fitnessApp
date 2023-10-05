@@ -1,14 +1,37 @@
 <div class="container">
     <div>
-        <h1 class="title">Register</h1>
+      <h1 class="title">Register</h1>
     </div>
-    <div class="input">
-        <app-input class="inputBox" type="text" placeholder="Username"></app-input>
-        <app-input class="inputBox" type="Password" placeholder="Password"></app-input>
-        <app-input class="inputBox" type="Password" placeholder="Password Confirmation"></app-input>
-        <div class="submitButton">
-            <button class="SubmitBTN" class="positive ui button">Submit</button>
-                <a routerLink="/login">Sign In.</a>
+    <form [formGroup]="authForm" class="input">
+        <div class="ui input error">
+            <input class="inputBox" formControlName="userUsername" ngDefaultControl type="text" placeholder="Username">
+            <span *ngIf="UserUsername?.touched && UserUsername?.errors" class="error-message">
+                Username is required.
+              </span>
+              <span *ngIf="UserUsername?.errors?.['minlength']" class="error-message">Please enter between 3 and 20 characters.</span>
+              <span *ngIf="UserUsername?.errors?.['pattern']">Please only use characters 0-9 and letters A-Z.</span>
         </div>
-    </div>
-</div>
+      <!-- Display error message if 'userUsername' is invalid and touched -->
+      
+      <div class="ui input error">
+        <input class="inputBox" type="password" placeholder="Password" formControlName="userPassword" ngDefaultControl>
+        <span *ngIf="UserPassword?.touched && UserPassword?.errors" class="error-message">
+            Password is required.
+          </span>
+          <span *ngIf="UserPassword?.errors?.['minlength']" class="error-message">Please enter between 3 and 20 characters.</span>
+      </div>
+      <!-- Display error message if 'userPassword' is invalid and touched -->
+      <div class="ui input error">
+        <input class="inputBox" type="password" placeholder="Password Confirmation" formControlName="userPassword" ngDefaultControl>
+        <span *ngIf="UserPasswordConfirmation?.touched && UserPasswordConfirmation?.errors" class="error-message">
+            password is required.
+          </span>
+          <span *ngIf="UserPasswordConfirmation?.errors?.['minlength']" class="error-message">Please enter between 3 and 20 characters.</span>
+      </div>
+      <div class="submitButton">
+        <button class="SubmitBTN" (submit)="!authForm.errors" class="positive ui button" [disabled]="authForm.invalid">Submit</button>
+        <a routerLink="/login">Sign In.</a>
+      </div>
+    </form>
+  </div>
+  
