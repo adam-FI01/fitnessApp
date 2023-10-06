@@ -7,22 +7,6 @@
     padding-bottom: 1rem;
 }
 
-::ng-deep {
-    .input {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-content: center;
-        margin-bottom: 2em;
-    }
-}
-
-.inputBox {
-  width: 20rem;
-  height: 2rem;
-}
-
 a {
     padding-left: 9rem;
     color: antiquewhite;
@@ -30,4 +14,35 @@ a {
 
 a:hover {
     color: white;
+}
+
+.centered-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+/* Additional styling for the container and title, if needed */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-family: m.$title;
+    padding-bottom: 1rem;
+}
+
+.validationNotifications {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.field {
+    width: 18.5rem;
 }

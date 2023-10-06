@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <div>
       <h1 class="title">Sign In</h1>
     </div>
@@ -11,7 +11,6 @@
               <span *ngIf="UserUsername?.errors?.['minlength']" class="error-message">Please enter between 3 and 20 characters.</span>
               <span *ngIf="UserUsername?.errors?.['pattern']">Please only use characters 0-9 and letters A-Z.</span>
         </div>
-      <!-- Display error message if 'userUsername' is invalid and touched -->
       
       <div class="ui input error">
         <input class="inputBox" type="password" placeholder="Password" formControlName="userPassword" ngDefaultControl>
@@ -21,11 +20,66 @@
           <span *ngIf="UserPassword?.errors?.['minlength']" class="error-message">Please enter between 3 and 20 characters.</span>
           <span *ngIf="UserPassword?.errors?.['pattern']">Please only use characters 0-9 and letters A-Z.</span>
       </div>
-      <!-- Display error message if 'userPassword' is invalid and touched -->
       <div class="submitButton">
         <button class="SubmitBTN" (submit)="!authForm.errors" class="positive ui button" [disabled]="authForm.invalid">Submit</button>
         <a routerLink="/sign-up">Sign Up.</a>
       </div>
     </form>
   </div>
-  
+   -->
+
+   <div class="container">
+    <div>
+        <h1 class="title">Sign In</h1>
+    </div>
+    <form [formGroup]="authForm" class="ui form centered-form">
+        <div class="field" [class.error]="authForm.get('userUsername')?.invalid && authForm.get('userUsername')?.touched">
+            <label for="userUsername">Username</label>
+            <input
+                class="input"
+                formControlName="userUsername"
+                id="userUsername"
+                type="text"
+                placeholder="Username"
+            >
+            <div class="validationNotifications">
+                <span class="ui label" *ngIf="authForm.get('userUsername')?.invalid && authForm.get('userUsername')?.touched">
+                    Username is required.
+                </span>
+                <span class="ui label" *ngIf="authForm.get('userUsername')?.hasError('minlength')">
+                    Please enter between 3 and 20 characters.
+                </span>
+                <span class="ui label" *ngIf="authForm.get('userUsername')?.hasError('pattern')">
+                    Please only use characters 0-9 and letters A-Z.
+                </span>
+            </div>
+        </div>
+
+        <div class="field" [class.error]="authForm.get('userPassword')?.invalid && authForm.get('userPassword')?.touched">
+            <label for="userPassword">Password</label>
+            <input
+                class="input"
+                formControlName="userPassword"
+                id="userPassword"
+                type="password"
+                placeholder="Password"
+            >
+            <div class="validationNotifications">
+                <span class="ui label" *ngIf="authForm.get('userPassword')?.invalid && authForm.get('userPassword')?.touched">
+                    Password is required.
+                </span>
+                <span class="ui label" *ngIf="authForm.get('userPassword')?.hasError('minlength')">
+                    Please enter between 3 and 20 characters.
+                </span>
+                <span class="ui label" *ngIf="authForm.get('userPassword')?.hasError('pattern')">
+                    Please only use characters 0-9 and letters A-Z.
+                </span>
+            </div>
+        </div>
+
+        <div class="submitButton">
+            <button class="SubmitBTN positive ui button" [disabled]="authForm.invalid">Submit</button>
+            <a routerLink="/sign-up">Sign Up.</a>
+        </div>
+    </form>
+</div>

@@ -20,10 +20,9 @@ export class RegisterComponent {
      Validators.minLength(4),
      Validators.maxLength(20)
     ]),
-    passwordConfirmation: new FormControl('',[ 
+    userEmail: new FormControl('',[ 
     Validators.required,
-    Validators.minLength(4),
-    Validators.maxLength(20)
+    Validators.email
     ]),
   },
   );
@@ -41,7 +40,7 @@ export class RegisterComponent {
     return this.authForm.get('userPassword');
   }
 
-  get UserPasswordConfirmation() {
-    return this.authForm.get('passwordConfirmation');
+  get UserEmail() {
+    return this.authForm.get('userEmail');
   }
 }
