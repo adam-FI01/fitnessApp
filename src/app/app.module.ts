@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { RegisterComponent } from './register/register.component';
 import { InputComponent } from './input/input.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -14,12 +16,14 @@ import { InputComponent } from './input/input.component';
     LoginScreenComponent,
     RegisterComponent,
     InputComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
      {provide: NG_VALUE_ACCESSOR,

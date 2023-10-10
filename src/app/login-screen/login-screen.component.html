@@ -78,8 +78,14 @@
         </div>
 
         <div class="submitButton">
-            <button class="SubmitBTN positive ui button" [disabled]="authForm.invalid">Submit</button>
+            <button (click)="onLogin()" class="SubmitBTN positive ui button" [disabled]="authForm.invalid">Submit</button>
             <a routerLink="/sign-up">Sign Up.</a>
         </div>
+
+        <div *ngIf="loginResponse$ | async as response">
+            <!-- Handle the response here, e.g., display a success message or navigate to a new page -->
+            <div>{{ response }}</div>
+            <app-home></app-home>
+          </div>
     </form>
 </div>
