@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 
 
 
@@ -14,7 +14,12 @@ export class AuthService {
   }
 
   login(credentials: SigninCridentials): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, credentials);
+    return this.http.post(`${this.apiUrl}/login`, credentials).pipe(
+      catchError((error) => {
+        // Handle the error and optionally re-throw it
+        return throwError(error);
+      })
+    );
   }
 }
 

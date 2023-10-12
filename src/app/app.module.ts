@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { InputComponent } from './input/input.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HomeComponent } from './home/home.component';
     RegisterComponent,
     InputComponent,
     HomeComponent,
+    LandingComponent,
   ],
   imports: [
     BrowserModule,

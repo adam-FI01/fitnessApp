@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { AuthService } from '../auth.service';
 import { tap } from 'rxjs/internal/operators/tap';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-screen',
@@ -13,9 +14,10 @@ export class LoginScreenComponent implements OnInit {
 
   loginResponse$: Observable<any> | any;
   errorMessage: any;
+  loginResponse: any;
   
 
-  constructor(private authService: AuthService, private fb: FormBuilder) {
+  constructor(private authService: AuthService, private fb: FormBuilder, private router: Router) {
   }
 
   authForm = new FormGroup({
@@ -48,7 +50,7 @@ export class LoginScreenComponent implements OnInit {
     return this.authForm.get('userPassword');
   }
 
-  onLogin() {
+  /* onLogin() {
     if (this.authForm.valid) {
       const credentials: any = {
         username: this.UserUsername?.value,
@@ -58,6 +60,24 @@ export class LoginScreenComponent implements OnInit {
 
 
       this.loginResponse$ = this.authService.login(credentials);
+    }
+  } */
+
+  async onLogin() {
+    const credentials: any = {
+      username: this.UserUsername?.value,
+      password: this.UserPassword?.value,
+    };
+    if (this.authForm.valid) {
+      try {
+        this.loginResponse = await this.authService.login(credentials).toPromise();
+        console.log('Response:', this.loginResponse);
+        // Redirect or handle success as needed
+        this.router.navigate(['/home'])
+      } catch (error) {
+        console.error('Error:', error);
+        // Handle the error as needed
+      }
     }
   }
 }
