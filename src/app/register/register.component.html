@@ -103,7 +103,7 @@
         </div>
 
         <div class="submitButton">
-            <button class="SubmitBTN positive ui button" [disabled]="authForm.invalid">Submit</button>
+            <button class="SubmitBTN positive ui button" (click)="onSignup()" [disabled]="authForm.invalid">Submit</button>
             <a routerLink="/login">Sign In.</a>
         </div>
     </form>

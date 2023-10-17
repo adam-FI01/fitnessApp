@@ -10,6 +10,7 @@ import { InputComponent } from './input/input.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { LandingComponent } from './landing/landing.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { LandingComponent } from './landing/landing.component';
   providers: [
      {provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => InputComponent),
-      multi: true,}
+      multi: true,},
+      CookieService
   ],
   bootstrap: [AppComponent]
 })
