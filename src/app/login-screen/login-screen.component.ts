@@ -44,7 +44,7 @@ export class LoginScreenComponent implements OnInit {
 
   
 
-  // Use the correct form control names here
+  // Use the correct form control names here //
   get UserUsername() {
     return this.authForm.get('userUsername');
   }
@@ -75,21 +75,21 @@ export class LoginScreenComponent implements OnInit {
     if (this.authForm.valid) {
       try {
         const response = await this.authService.login(credentials).toPromise();
-        const jwtToken = response.access_token; // Assuming this is how you get the JWT token from the response
+        const jwtToken = response.access_token; // Assuming this is how you get the JWT token from the response //
 
-        // Set the JWT token in an HTTP-only cookie
+        // Set the JWT token in an HTTP-only cookie //
         const expirationTime = new Date();
-        expirationTime.setHours(expirationTime.getHours() + 1); // Set expiration to 1 hour from now
+        expirationTime.setHours(expirationTime.getHours() + 1); // Set expiration to 1 hour from now //
         this.cookieService.set('jwtToken', jwtToken, undefined, '/', 'localhost', true, 'Lax');
         console.log(jwtToken)
 
 
 
 
-        // Redirect or handle success as needed
+        // Redirect or handle success as needed //
         this.router.navigate(['/home']);
       } catch (error) {
-        // Handle login error
+        // Handle login error //
         if (error instanceof HttpErrorResponse) {
           if (error.error && error.error.message) {
             alert(error.error.message);
