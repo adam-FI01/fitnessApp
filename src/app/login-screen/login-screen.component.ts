@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { tap } from 'rxjs/internal/operators/tap';
@@ -16,7 +16,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class LoginScreenComponent implements OnInit {
 
   loginResponse$: Observable<any> | any;
-  errorMessage: any;
+  @Output() jwtTokens: any;
   loginResponse: any;
   
 
@@ -71,6 +71,9 @@ export class LoginScreenComponent implements OnInit {
       username: this.UserUsername?.value,
       password: this.UserPassword?.value,
     };
+    const response = await this.authService.login(credentials).toPromise();
+    let jwtToken = response.access_token;
+    jwtToken = this.jwtTokens
 
     if (this.authForm.valid) {
       try {
