@@ -11,6 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { LandingComponent } from './landing/landing.component';
 import { CookieService } from 'ngx-cookie-service';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AddExerciseComponent } from './add-exercise/add-exercise.component';
+import { RemoveExerciseComponent } from './remove-exercise/remove-exercise.component';
+import { UpdateExerciseComponent } from './update-exercise/update-exercise.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,10 @@ import { CookieService } from 'ngx-cookie-service';
     InputComponent,
     HomeComponent,
     LandingComponent,
+    NavbarComponent,
+    AddExerciseComponent,
+    RemoveExerciseComponent,
+    UpdateExerciseComponent,
   ],
   imports: [
     BrowserModule,

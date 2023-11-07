@@ -1,1 +1,11 @@
-<p>home works!</p>
+<div class="ui three item menu">
+    <a class="item" [routerLink]="['add-exercise']" routerLinkActive="active">Add Exercise</a>
+    <a class="item" [routerLink]="['remove-exercise']" routerLinkActive="active">Remove Exercise</a>
+    <a class="item" [routerLink]="['update-exercise']" routerLinkActive="active">Update Exercise</a>
+  </div>
+  
+  <div class="content">
+    <router-outlet name="menuOutlet"></router-outlet>
+    <router-outlet></router-outlet>
+  </div>
+  
