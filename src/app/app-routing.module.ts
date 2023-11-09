@@ -8,6 +8,7 @@ import { AuthGuard } from './auth.guard';
 import { AddExerciseComponent } from './add-exercise/add-exercise.component';
 import { RemoveExerciseComponent } from './remove-exercise/remove-exercise.component';
 import { UpdateExerciseComponent } from './update-exercise/update-exercise.component';
+import { ViewStatsComponent } from './view-stats/view-stats.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'add-exercise', component: AddExerciseComponent },
       { path: 'remove-exercise', component: RemoveExerciseComponent,  },
       { path: 'update-exercise', component: UpdateExerciseComponent, },
+      { path: 'view-stats', component: ViewStatsComponent, },
     ]
   },
   // Add more top-level routes if needed

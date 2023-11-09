@@ -15,6 +15,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AddExerciseComponent } from './add-exercise/add-exercise.component';
 import { RemoveExerciseComponent } from './remove-exercise/remove-exercise.component';
 import { UpdateExerciseComponent } from './update-exercise/update-exercise.component';
+import { ViewStatsComponent } from './view-stats/view-stats.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { UpdateExerciseComponent } from './update-exercise/update-exercise.compo
     AddExerciseComponent,
     RemoveExerciseComponent,
     UpdateExerciseComponent,
+    ViewStatsComponent,
   ],
   imports: [
     BrowserModule,

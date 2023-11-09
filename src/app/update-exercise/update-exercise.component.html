@@ -1,1 +1,26 @@
-<p>update-exercise works!</p>
+<div id="updateForm">
+    <form id="exerciseForm" class="ui form">
+        <div class="ui floating dropdown labeled search icon button">
+        <i class="world icon"></i>
+        <span class="text">Select Exercise</span>
+        <input type="hidden" name="exercise">
+        <div class="menu">
+            <div class="item" data-value="benchPress">Bench Press</div>
+            <div class="item" data-value="squat">Squat</div>
+            <div class="item" data-value="lateralRaise">Lateral Raise</div>
+        </div>
+        </div>
+    
+        <div class="field">
+            <label for="repsInput">Reps:</label>
+            <input type="number" id="repsInput" name="reps">
+        </div>
+        
+        <div class="field">
+            <label for="weightInput">Weight (lbs):</label>
+            <input type="number" id="weightInput" name="weight">
+        </div>
+        
+        <button class="ui primary button" id="submitSet">Submit Set</button>
+    </form>
+</div>

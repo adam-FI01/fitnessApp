@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
+
+declare var $: any; // Declare jQuery to access Semantic UI functions
 
 @Component({
   selector: 'app-update-exercise',
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./update-exercise.component.scss']
 })
 export class UpdateExerciseComponent {
-
+  ngAfterViewInit() {
+    $('.ui.dropdown').dropdown();
+  }
 }
