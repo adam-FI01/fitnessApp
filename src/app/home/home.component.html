@@ -1,11 +1,22 @@
 <div class="ui four item menu">
-    <a class="item" [routerLink]="['add-exercise']" routerLinkActive="active">Add Exercise</a>
-    <a class="item" [routerLink]="['remove-exercise']" routerLinkActive="active">Remove Exercise</a>
-    <a class="item" [routerLink]="['update-exercise']" routerLinkActive="active">Update Exercise</a>
-    <a class="item" [routerLink]="['view-stats']" routerLinkActive="active">View Stats</a>
+  <a class="item" [routerLink]="['add-exercise']" routerLinkActive="active">Add Exercise</a>
+  <a class="item" [routerLink]="['remove-exercise']" routerLinkActive="active">Remove Exercise</a>
+  <a class="item" [routerLink]="['update-exercise']" routerLinkActive="active">Update Exercise</a>
+
+  <div class="ui dropdown item">
+    <div class="text">View Stats</div>
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <a class="item" [routerLink]="['view-stats']" routerLinkActive="active">View Stats</a>
+      <a class="item" [routerLink]="['view-stats/view-stats-weekly']" routerLinkActive="active">View Stats Weekly</a>
+      <a class="item" [routerLink]="['view-stats/view-stats-monthly']" routerLinkActive="active">View Stats Monthly</a>
+      <a class="item" [routerLink]="['view-stats/view-stats-allTime']" routerLinkActive="active">View Stats All Time</a>
+      <!-- Add more options as needed -->
+    </div>
   </div>
-  
-  <div class="content">
-    <router-outlet name="menuOutlet"></router-outlet>
-    <router-outlet></router-outlet>
-  </div>
+</div>
+
+<div class="content">
+  <router-outlet name="menuOutlet"></router-outlet>
+  <router-outlet></router-outlet>
+</div>

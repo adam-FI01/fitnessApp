@@ -9,6 +9,9 @@ import { AddExerciseComponent } from './add-exercise/add-exercise.component';
 import { RemoveExerciseComponent } from './remove-exercise/remove-exercise.component';
 import { UpdateExerciseComponent } from './update-exercise/update-exercise.component';
 import { ViewStatsComponent } from './view-stats/view-stats.component';
+import { ViewStatsWeeklyComponent } from './view-stats-weekly/view-stats-weekly.component';
+import { ViewStatsMonthlyComponent } from './view-stats-monthly/view-stats-monthly.component';
+import { ViewStatsAllTimeComponent } from './view-stats-all-time/view-stats-all-time.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -20,16 +23,23 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: 'add-exercise', component: AddExerciseComponent },
-      { path: 'remove-exercise', component: RemoveExerciseComponent,  },
-      { path: 'update-exercise', component: UpdateExerciseComponent, },
-      { path: 'view-stats', component: ViewStatsComponent, },
+      { path: 'remove-exercise', component: RemoveExerciseComponent },
+      { path: 'update-exercise', component: UpdateExerciseComponent },
+      {
+        path: 'view-stats',
+        component: ViewStatsComponent,
+        children: [
+          { path: 'view-stats-weekly', component: ViewStatsWeeklyComponent },
+          { path: 'view-stats-monthly', component: ViewStatsMonthlyComponent },
+          { path: 'view-stats-allTime', component: ViewStatsAllTimeComponent },
+        ]
+      },
     ]
   },
-  // Add more top-level routes if needed
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -16,6 +16,11 @@ import { AddExerciseComponent } from './add-exercise/add-exercise.component';
 import { RemoveExerciseComponent } from './remove-exercise/remove-exercise.component';
 import { UpdateExerciseComponent } from './update-exercise/update-exercise.component';
 import { ViewStatsComponent } from './view-stats/view-stats.component';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { ViewStatsMonthlyComponent } from './view-stats-monthly/view-stats-monthly.component';
+import { ViewStatsWeeklyComponent } from './view-stats-weekly/view-stats-weekly.component';
+import { ViewStatsAllTimeComponent } from './view-stats-all-time/view-stats-all-time.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +35,9 @@ import { ViewStatsComponent } from './view-stats/view-stats.component';
     RemoveExerciseComponent,
     UpdateExerciseComponent,
     ViewStatsComponent,
+    ViewStatsMonthlyComponent,
+    ViewStatsWeeklyComponent,
+    ViewStatsAllTimeComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +45,8 @@ import { ViewStatsComponent } from './view-stats/view-stats.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    TableModule,
+    ButtonModule
   ],
   providers: [
      {provide: NG_VALUE_ACCESSOR,
