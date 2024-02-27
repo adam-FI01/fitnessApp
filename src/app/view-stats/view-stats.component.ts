@@ -26,89 +26,58 @@ export class ViewStatsComponent {
 
     this.customers = [
       {
+        Exercise: 'Squats',
         Date: '12/17/2022',
         Weight: '140',
         Reps: '12',
       },
       {
+        Exercise: 'Push-ups',
+        Date: '12/17/2022',
+        Weight: 'n/a',
+        Reps: '15',
+      },
+      {
+        Exercise: 'Bench Press',
+        Date: '12/18/2022',
+        Weight: '175',
+        Reps: '10',
+      },
+      {
+        Exercise: 'Squats',
         Date: '12/17/2022',
         Weight: '140',
         Reps: '12',
       },
       {
+        Exercise: 'Push-ups',
+        Date: '12/17/2022',
+        Weight: 'n/a',
+        Reps: '15',
+      },
+      {
+        Exercise: 'Bench Press',
+        Date: '12/18/2022',
+        Weight: '175',
+        Reps: '10',
+      },
+      {
+        Exercise: 'Squats',
         Date: '12/17/2022',
         Weight: '140',
         Reps: '12',
       },
       {
+        Exercise: 'Push-ups',
         Date: '12/17/2022',
-        Weight: '140',
-        Reps: '12',
+        Weight: 'n/a',
+        Reps: '15',
       },
       {
-        Date: '12/17/2022',
-        Weight: '140',
-        Reps: '12',
-      },
-      {
-        Date: '12/17/2022',
-        Weight: '140',
-        Reps: '12',
-      },
-      {
-        Date: '12/17/2022',
-        Weight: '140',
-        Reps: '12',
-      },
-      {
-        Date: '12/17/2022',
-        Weight: '140',
-        Reps: '12',
-      },
-      {
-        Date: '12/17/2022',
-        Weight: '140',
-        Reps: '12',
-      },
-      {
-        Date: '12/17/2022',
-        Weight: '140',
-        Reps: '12',
-      },
-      {
-        Date: '12/17/2022',
-        Weight: '140',
-        Reps: '12',
-      },
-      {
-        Date: '12/17/2022',
-        Weight: '140',
-        Reps: '12',
-      },
-      {
-        Date: '12/17/2022',
-        Weight: '140',
-        Reps: '12',
-      },
-      {
-        Date: '12/17/2022',
-        Weight: '140',
-        Reps: '12',
-      },
-      {
-        Date: '12/17/2022',
-        Weight: '140',
-        Reps: '12',
-      },
-      {
-        Date: '12/17/2022',
-        Weight: '140',
-        Reps: '12',
-      },
-      {
-        Date: '12/17/2022',
-        Weight: '140',
-        Reps: '12',
+        Exercise: 'Bench Press',
+        Date: '12/18/2022',
+        Weight: '175',
+        Reps: '10',
       },
     ]; 
   }

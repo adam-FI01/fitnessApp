@@ -21,6 +21,7 @@ import { ButtonModule } from 'primeng/button';
 import { ViewStatsMonthlyComponent } from './view-stats-monthly/view-stats-monthly.component';
 import { ViewStatsWeeklyComponent } from './view-stats-weekly/view-stats-weekly.component';
 import { ViewStatsAllTimeComponent } from './view-stats-all-time/view-stats-all-time.component';
+import { ReusableTableComponent } from './reusable-table/reusable-table.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ViewStatsAllTimeComponent } from './view-stats-all-time/view-stats-all-
     ViewStatsMonthlyComponent,
     ViewStatsWeeklyComponent,
     ViewStatsAllTimeComponent,
+    ReusableTableComponent,
   ],
   imports: [
     BrowserModule,

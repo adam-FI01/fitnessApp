@@ -1,4 +1,4 @@
-<div class="card" *ngIf="showChartDaily">
+<!-- <div class="card" *ngIf="showChartDaily">
     <p-table [value]="customers" [scrollable]="true" scrollHeight="400px" [tableStyle]="{'min-width': '50rem'}">
         <ng-template pTemplate="header">
             <tr>
@@ -15,7 +15,9 @@
             </tr>
         </ng-template>
     </p-table>
-</div>
+</div> -->
+<app-reusable-table *ngIf="showChartDaily" [data]="customers"></app-reusable-table>
+
 
 <app-view-stats-weekly *ngIf="showChartWeekly"></app-view-stats-weekly>
 <app-view-stats-monthly *ngIf="showChartMonthly"></app-view-stats-monthly>
