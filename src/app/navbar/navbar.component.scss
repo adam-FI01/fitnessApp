@@ -1,0 +1,33 @@
+/* navbar.component.css */
+.ui.secondary.pointing.menu {
+    background: linear-gradient(135deg, #0207a3, #c4d3f6);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .ui.secondary.pointing.menu .item {
+    color: #fff !important;
+    font-size: 18px;
+  }
+  
+  .ui.secondary.pointing.menu .item.active {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .ui.secondary.pointing.menu .right.menu {
+    display: flex;
+    align-items: center;
+  }
+  
+  .ui.secondary.pointing.menu .right.menu .item {
+    color: #fff !important;
+    font-size: 18px;
+    margin-left: 20px;
+  }
+  
+  .ui.secondary.pointing.menu .right.menu .item.active {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
