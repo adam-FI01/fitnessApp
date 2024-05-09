@@ -42,7 +42,7 @@ export class AuthService {
     }
   }
 
-  private getJwtToken(): string | null {
+  getJwtToken(): string | null {
     // Implement the logic to retrieve the JWT token from where it's stored (e.g., cookies or local storage)
     // For example, if you are using ngx-cookie-service, you can retrieve it like this:
     return this.cookie.get('jwtToken');
