@@ -1,25 +1,31 @@
 <div id="updateForm">
-    <form id="exerciseForm" class="ui form">
-      <div class="ui floating dropdown labeled search icon button">
-        <i class="world icon"></i>
-        <span class="text">Select Exercise</span>
-        <input type="hidden" name="exercise">
-        <div class="menu">
-          <div class="item" *ngFor="let exercise of exercises" [attr.data-value]="exercise">{{ exercise }}</div>
+  <form [formGroup]="exerciseForm" (ngSubmit)="onSubmit()" class="ui form">
+    <div class="ui floating dropdown labeled search icon button">
+      <i class="world icon"></i>
+      <span class="text">Select Exercise</span>
+      <input type="hidden" formControlName="exercise">
+      <div class="menu">
+        <div 
+          class="item" 
+          *ngFor="let exercise of exercises" 
+          [attr.data-value]="exercise"
+          (click)="exerciseForm.controls['exercise'].setValue(exercise)"
+        >
+          {{ exercise }}
         </div>
       </div>
-  
-      <div class="field">
-        <label for="repsInput">Reps:</label>
-        <input type="number" id="repsInput" name="reps">
-      </div>
-  
-      <div class="field">
-        <label for="weightInput">Weight (lbs):</label>
-        <input type="number" id="weightInput" name="weight">
-      </div>
-  
-      <button class="ui primary button" id="submitSet">Submit Set</button>
-    </form>
-  </div>
-  
+    </div>
+
+    <div class="field">
+      <label for="repsInput">Reps:</label>
+      <input type="number" id="repsInput" formControlName="reps">
+    </div>
+
+    <div class="field">
+      <label for="weightInput">Weight (lbs):</label>
+      <input type="number" id="weightInput" formControlName="weight">
+    </div>
+
+    <button class="ui primary button" type="submit" [disabled]="!exerciseForm.valid">Submit Set</button>
+  </form>
+</div>

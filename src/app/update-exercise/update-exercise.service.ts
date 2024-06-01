@@ -29,4 +29,22 @@ export class UpdateExerciseService {
       })
     );
   }
+
+  updateExercise(exerciseName: string, reps: number, weight: number): Observable<any> {
+    const token = this.authService.getJwtToken(); // Get the JWT token from AuthService
+    const body = { exerciseName, reps, weight };
+
+    // Set headers with JWT token
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    });
+
+    return this.http.patch<any>(`${this.apiUrl}/update-exercise`, body, { headers, withCredentials: true }).pipe(
+      catchError(error => {
+        console.error('Error updating exercise:', error);
+        return throwError(error);
+      })
+    );
+  }
 }
