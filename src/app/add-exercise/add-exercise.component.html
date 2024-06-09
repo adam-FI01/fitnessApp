@@ -1,12 +1,25 @@
-<!-- add-exercise.component.html -->
-<div class="container">
-    <h2>Add Exercise</h2>
-    <form (ngSubmit)="addExercise()" #exerciseForm="ngForm">
-      <div class="form-group">
-        <label for="exerciseName">Exercise Name</label>
-        <input type="text" id="exerciseName" name="exerciseName" class="form-control" [(ngModel)]="exerciseName" required>
+<div class="container mt-5">
+  <div class="card shadow-lg p-4 rounded">
+    <h2 class="mb-4 text-center">Add Exercise</h2>
+    <form (ngSubmit)="addExercise()" #exerciseForm="ngForm" class="text-center">
+      <div class="form-group mb-3 labelAndInput">
+        <label for="exerciseName" class="form-label">Exercise Name</label>
+        <input 
+          type="text" 
+          id="exerciseName" 
+          name="exerciseName" 
+          class="form-control" 
+          [(ngModel)]="exerciseName" 
+          required
+        >
       </div>
-      <button type="submit" class="btn btn-primary">Add Exercise</button>
+      <button 
+        type="submit" 
+        class="btn btn-primary w-100 submitButton"
+        [disabled]="!exerciseForm.form.valid"
+      >
+        Add Exercise
+      </button>
     </form>
   </div>
-  
+</div>
