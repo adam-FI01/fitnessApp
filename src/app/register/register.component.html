@@ -1,110 +1,69 @@
-<!-- <div class="container">
-    <div>
-      <h1 class="title">Register</h1>
-    </div>
-    <form [formGroup]="authForm" class="input">
-        <div class="ui input error">
-            <input class="inputBox" formControlName="userUsername" ngDefaultControl type="text" placeholder="Username">
-            <label  *ngIf="UserUsername?.touched && UserUsername?.errors" class="error-message">
-                Username is required.
-            </label>
-              <label  *ngIf="UserUsername?.errors?.['minlength']" class="error-message">Please enter between 3 and 20 characters.</label>
-              <label  *ngIf="UserUsername?.errors?.['pattern']">Please only use characters 0-9 and letters A-Z.</label>
+<div class="ui middle aligned center aligned grid">
+    <div class="column">
+      <h2 class="ui teal image header">
+        <img src="assets/images/logo.png" class="image">
+        <div class="content">
+          Create a new account
         </div>
-      
-      <div class="ui input error">
-        <input class="inputBox" type="password" placeholder="Password" formControlName="userPassword" ngDefaultControl>
-        <span *ngIf="UserPassword?.touched && UserPassword?.errors" class="error-message">
-            Password is required.
-          </span>
-          <span *ngIf="UserPassword?.errors?.['minlength']" class="error-message">Please enter between 3 and 20 characters.</span>
-      </div>
-      <div class="ui input error">
-        <input class="inputBox" type="email" placeholder="Email" formControlName="userEmail" ngDefaultControl>
-        <span *ngIf="UserEmail?.touched && UserEmail?.errors" class="error-message">
-            Email is required.
-          </span>
-          <span *ngIf="UserEmail?.errors?.['Email']" class="error-message">Please enter an email and put it within an email format.</span>
-      </div>
-      <div class="submitButton">
-        <button class="SubmitBTN" (submit)="!authForm.errors" class="positive ui button" [disabled]="authForm.invalid">Submit</button>
-        <a routerLink="/login">Sign In.</a>
-      </div>
-    </form>
+      </h2>
+      <form [formGroup]="authForm" class="ui large form" (ngSubmit)="onSignup()">
+        <div class="ui stacked segment">
+          <div class="field" [class.error]="authForm.get('userUsername')?.invalid && authForm.get('userUsername')?.touched">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <input 
+                type="text" 
+                name="userUsername" 
+                formControlName="userUsername" 
+                placeholder="Username"
+              >
+            </div>
+            <div class="ui label validation-message" *ngIf="authForm.get('userUsername')?.invalid && authForm.get('userUsername')?.touched">
+              <span *ngIf="authForm.get('userUsername')?.errors?.['required']">Username is required.</span>
+              <span *ngIf="authForm.get('userUsername')?.errors?.['minlength']">Please enter between 3 and 20 characters.</span>
+              <span *ngIf="authForm.get('userUsername')?.errors?.['pattern']">Please only use characters 0-9 and letters A-Z.</span>
+            </div>
+          </div>
+  
+          <div class="field" [class.error]="authForm.get('userPassword')?.invalid && authForm.get('userPassword')?.touched">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <input 
+                type="password" 
+                name="userPassword" 
+                formControlName="userPassword" 
+                placeholder="Password"
+              >
+            </div>
+            <div class="ui label validation-message" *ngIf="authForm.get('userPassword')?.invalid && authForm.get('userPassword')?.touched">
+              <span *ngIf="authForm.get('userPassword')?.errors?.['required']">Password is required.</span>
+              <span *ngIf="authForm.get('userPassword')?.errors?.['minlength']">Please enter between 3 and 20 characters.</span>
+            </div>
+          </div>
+  
+          <div class="field" [class.error]="authForm.get('userEmail')?.invalid && authForm.get('userEmail')?.touched">
+            <div class="ui left icon input">
+              <i class="mail icon"></i>
+              <input 
+                type="email" 
+                name="userEmail" 
+                formControlName="userEmail" 
+                placeholder="Email"
+              >
+            </div>
+            <div class="ui label validation-message" *ngIf="authForm.get('userEmail')?.invalid && authForm.get('userEmail')?.touched">
+              <span *ngIf="authForm.get('userEmail')?.errors?.['required']">Email is required.</span>
+              <span *ngIf="authForm.get('userEmail')?.errors?.['email']">Please enter a valid email address.</span>
+            </div>
+          </div>
+  
+          <button type="submit" class="ui fluid large teal button" [disabled]="authForm.invalid">Register</button>
+        </div>
+  
+        <div class="ui message">
+          Already have an account? <a routerLink="/login">Sign In</a>
+        </div>
+      </form>
+    </div>
   </div>
   
-
-   -->
-
-   <div class="container">
-    <div>
-        <h1 class="title">Register</h1>
-    </div>
-    <form [formGroup]="authForm" class="ui form">
-        <div class="field" [class.error]="authForm.get('userUsername')?.invalid && authForm.get('userUsername')?.touched">
-            <label for="userUsername">Username</label>
-            <input
-                class="input"
-                formControlName="userUsername"
-                id="userUsername"
-                type="text"
-                placeholder="Username"
-            >
-            <div class="validationNotifications">
-              <span class="ui label" *ngIf="authForm.get('userUsername')?.invalid && authForm.get('userUsername')?.touched">
-                Username is required.
-            </span>
-            <span class="ui label" *ngIf="authForm.get('userUsername')?.hasError('minlength')">
-                Please enter between 3 and 20 characters.
-            </span>
-            <span class="ui label" *ngIf="authForm.get('userUsername')?.hasError('pattern')">
-                Please only use characters 0-9 and letters A-Z.
-            </span>
-            </div>
-            
-        </div>
-
-        <div class="field" [class.error]="authForm.get('userPassword')?.invalid && authForm.get('userPassword')?.touched">
-            <label for="userPassword">Password</label>
-            <input
-                class="input"
-                formControlName="userPassword"
-                id="userPassword"
-                type="password"
-                placeholder="Password"
-            >
-            <div class="validationNotifications">
-              <span class="ui label" *ngIf="authForm.get('userPassword')?.invalid && authForm.get('userPassword')?.touched">
-                Password is required.
-            </span>
-            <span class="ui label" *ngIf="authForm.get('userPassword')?.hasError('minlength')">
-                Please enter between 3 and 20 characters.
-            </span>
-            </div>
-        </div>
-
-        <div class="field" [class.error]="authForm.get('userEmail')?.invalid && authForm.get('userEmail')?.touched">
-            <label for="userEmail">Email</label>
-            <input
-                class="input"
-                formControlName="userEmail"
-                id="userEmail"
-                type="email"
-                placeholder="Email"
-            >
-            <div class="validationNotifications">
-              <span class="ui label" *ngIf="authForm.get('userEmail')?.invalid && authForm.get('userEmail')?.touched">
-                Email is required.
-            </span>
-            <span class="ui label" *ngIf="authForm.get('userEmail')?.hasError('email')">
-                Please enter a valid email address.
-            </span>
-            </div>
-        </div>
-
-        <div class="submitButton">
-            <button class="SubmitBTN positive ui button" (click)="onSignup()" [disabled]="authForm.invalid">Submit</button>
-            <a routerLink="/login">Sign In.</a>
-        </div>
-    </form>
-</div>

@@ -1,48 +1,45 @@
-@use 'src/styles.scss' as m;
-
-.title {
-    font-family: m.$title;
-    display: flex;
-    justify-content: center;
-    padding-bottom: 1rem;
-}
-
-a {
-    padding-left: 9rem;
-    color: antiquewhite;
-}
-
-a:hover {
+body {
+    background-color: #dadada;
+  }
+  
+  .column {
+    max-width: 450px;
+  }
+  
+  .image {
+    margin-top: -100px;
+  }
+  
+  .field {
+    margin-bottom: 1rem;
+  }
+  
+  .error .ui.input > input {
+    border-color: #e0b4b4;
+  }
+  
+  .ui.label.validation-message {
+    color: #9f3a38;
+    background-color: #f4f4f9;
+    border: 1px solid #e0b4b4;
+  }
+  
+  .ui.teal.button {
+    background-color: #00b5ad;
     color: white;
-}
-
-.centered-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-}
-
-/* Additional styling for the container and title, if needed */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.title {
-    font-family: m.$title;
-    padding-bottom: 1rem;
-}
-
-.validationNotifications {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.field {
-    width: 18.5rem;
-}
+  }
+  
+  .ui.teal.button:hover {
+    background-color: #009c95;
+  }
+  
+  .ui.message {
+    margin-top: 1rem;
+  }
+  
+  .ui.stacked.segment {
+    padding: 2rem;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  }
+  

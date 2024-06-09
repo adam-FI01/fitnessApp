@@ -9,7 +9,6 @@ body {
 }
 
 .container {
-  /* width: 90%; */
   max-width: 75rem; /* 1200px in rem (16px base font size) */
   margin: auto;
   padding: 1rem;
@@ -80,7 +79,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-content: center;
-  flex-direction: inherit;
+  flex-direction: column;
 }
 
 .submitButton {
@@ -89,7 +88,7 @@ h2 {
 
 .labelAndInput {
   display: flex;
-  flex-direction: inherit;
+  flex-direction: column;
 }
 
 @media (min-width: 36rem) {
