@@ -1,9 +1,9 @@
-<div id="updateForm">
+<div id="updateForm" class="ui container">
   <form [formGroup]="exerciseForm" (ngSubmit)="onSubmit()" class="ui form">
-    <div class="ui floating dropdown labeled search icon button">
-      <i class="world icon"></i>
-      <span class="text">Select Exercise</span>
+    <div class="ui fluid selection dropdown">
       <input type="hidden" formControlName="exercise">
+      <i class="dropdown icon"></i>
+      <div class="default text">Select Exercise</div>
       <div class="menu">
         <div 
           class="item" 
@@ -17,15 +17,20 @@
     </div>
 
     <div class="field">
-      <label for="repsInput">Reps:</label>
-      <input type="number" id="repsInput" formControlName="reps">
+      <label class="inputHeader" for="repsInput">Reps:</label>
+      <input type="number" id="repsInput" formControlName="reps" placeholder="Enter number of reps">
     </div>
 
     <div class="field">
-      <label for="weightInput">Weight (lbs):</label>
-      <input type="number" id="weightInput" formControlName="weight">
+      <label class="inputHeader" for="weightInput">Weight (lbs):</label>
+      <div class="ui right labeled input">
+        <input type="number" id="weightInput" formControlName="weight" placeholder="Enter weight...">
+        <div class="ui basic label">
+          lbs
+        </div>
+      </div>
     </div>
 
-    <button class="ui primary button" type="submit" [disabled]="!exerciseForm.valid">Submit Set</button>
+    <button class="ui fluid large primary button" type="submit" [disabled]="!exerciseForm.valid">Submit Set</button>
   </form>
 </div>

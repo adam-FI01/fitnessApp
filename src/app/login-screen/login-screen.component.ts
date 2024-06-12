@@ -90,7 +90,7 @@ export class LoginScreenComponent implements OnInit {
 
 
         // Redirect or handle success as needed //
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home/update-exercise']);
       } catch (error) {
         // Handle login error //
         if (error instanceof HttpErrorResponse) {

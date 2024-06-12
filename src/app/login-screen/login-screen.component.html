@@ -1,9 +1,9 @@
-<div class="ui middle aligned center aligned grid">
+<div class="ui middle aligned center aligned grid signInForm">
     <div class="column">
-      <h2 class="ui teal image header">
-        <img src="assets/images/logo.png" class="image">
+      <h2 class="ui image header">
+        <img src="assets/favicon.png" class="image">
         <div class="content">
-          Log-in to your account
+          Log-in to Your Account
         </div>
       </h2>
       <form [formGroup]="authForm" class="ui large form" (ngSubmit)="onLogin()">
@@ -60,7 +60,7 @@
         <div *ngIf="loginResponse$ | async as response">
           <!-- Handle the response here, e.g., display a success message or navigate to a new page -->
           <div>{{ response }}</div>
-          <app-home></app-home>
+          <app-update-exercise></app-update-exercise>
         </div>
       </form>
     </div>

@@ -1,13 +1,60 @@
-#exerciseForm {
-    width: 14rem;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: stretch;
-    align-content: stretch;
-    }
 #updateForm {
     display: flex;
     justify-content: center;
+    padding: 1rem;
+    margin-top: 4rem;
+  }
+  
+  #updateForm .ui.container {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  label {
+    color: white;
+  }
+  
+  .ui.form {
+    width: 100%;
+  }
+  
+  .ui.form .field {
+    margin-bottom: 1rem;
+  }
+  
+  .ui.form .ui.dropdown {
+    width: 100%;
+  }
+  
+  .ui.button {
+    margin-top: 1rem;
+  }
+  
+  /* input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: none;
+  
+    &::-webkit-inner-spin-button { 
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  } */
+
+  /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+  
+  @media only screen and (max-width: 767px) {
+    #updateForm .ui.container {
+      padding: 1rem;
+    }
+  }
+  

@@ -1,6 +1,15 @@
 body {
     background-color: #dadada;
   }
+
+  .signInForm {
+    margin-top: 8%;
+  }
+
+  .header {
+    right: 1rem;
+    color: #a8cdf0;
+  }
   
   .column {
     max-width: 450px;
@@ -25,12 +34,12 @@ body {
   }
   
   .ui.teal.button {
-    background-color: #00b5ad;
+    background-color: rgb(61, 116, 168);
     color: white;
   }
   
   .ui.teal.button:hover {
-    background-color: #009c95;
+    background-color: #5a9ad6;
   }
   
   .ui.message {
