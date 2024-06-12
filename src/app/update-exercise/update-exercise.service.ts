@@ -30,9 +30,9 @@ export class UpdateExerciseService {
     );
   }
 
-  updateExercise(exerciseName: string, reps: number, weight: number): Observable<any> {
+  updateExercise(exerciseName: string, reps: number, weight: number, intensity: string): Observable<any> {
     const token = this.authService.getJwtToken(); // Get the JWT token from AuthService
-    const body = { exerciseName, reps, weight };
+    const body = { exerciseName, reps, weight, intensity };
 
     // Set headers with JWT token
     const headers = new HttpHeaders({

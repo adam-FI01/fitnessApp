@@ -20,7 +20,8 @@ export class UpdateExerciseComponent implements OnInit, AfterViewInit {
     this.exerciseForm = this.fb.group({
       exercise: ['', Validators.required],
       reps: ['', [Validators.required, Validators.min(1)]],
-      weight: ['', [Validators.required, Validators.min(1)]]
+      weight: ['', [Validators.required, Validators.min(1)]],
+      intensity: ['', Validators.required]
     });
   }
 
@@ -41,14 +42,26 @@ export class UpdateExerciseComponent implements OnInit, AfterViewInit {
 
   onSubmit(): void {
     if (this.exerciseForm.valid) {
-      const { exercise, reps, weight } = this.exerciseForm.value;
-      this.updateExerciseService.updateExercise(exercise, reps, weight).subscribe(
+      const { exercise, reps, weight, intensity } = this.exerciseForm.value;
+      this.updateExerciseService.updateExercise(exercise, reps, weight, intensity).subscribe(
         response => {
           console.log('Exercise updated successfully', response);
+          this.openModal('successModal');
           this.exerciseForm.reset();
         },
-        error => console.error('Error updating exercise:', error)
+        error => {
+          console.error('Error updating exercise:', error);
+          this.openModal('errorModal');
+        }
       );
     }
+  }
+
+  openModal(modalId: string): void {
+    $(`#${modalId}`).modal('show');
+  }
+
+  closeModal(modalId: string): void {
+    $(`#${modalId}`).modal('hide');
   }
 }

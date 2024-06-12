@@ -1,12 +1,75 @@
-<div class="container">
-    <h2 class="mb-4">Delete Exercise</h2>
-    <form (ngSubmit)="confirmDeletion()" #deleteForm="ngForm">
-        <div class="form-group">
-            <label for="exerciseToDelete" class="form-label">Select Exercise to Delete:</label>
-            <select id="exerciseToDelete" name="exerciseToDelete" class="form-select" [(ngModel)]="exerciseNameToDelete">
-                <option *ngFor="let exercise of exercises" [value]="exercise">{{ exercise }}</option>
-            </select>
+<div id="deleteExerciseForm" class="ui container">
+    <span class="updateHeader">Delete Exercise</span>
+    <form [formGroup]="deleteForm" (ngSubmit)="confirmDeletion()" class="ui form">
+      <div class="field">
+        <label class="inputHeader" for="exerciseToDelete">Select Exercise to Delete:</label>
+        <div class="ui fluid selection dropdown">
+          <input type="hidden" formControlName="exerciseToDelete" id="exerciseToDelete">
+          <i class="dropdown icon"></i>
+          <div class="default text">Select Exercise</div>
+          <div class="menu">
+            <div 
+              class="item" 
+              *ngFor="let exercise of exercises" 
+              [attr.data-value]="exercise"
+              (click)="deleteForm.controls['exerciseToDelete'].setValue(exercise)"
+            >
+              {{ exercise }}
+            </div>
+          </div>
         </div>
-        <button type="submit" class="btn btn-danger">Delete Exercise</button>
+      </div>
+  
+      <button 
+        type="submit" 
+        class="ui fluid large red button" 
+        [disabled]="!deleteForm.valid"
+      >
+        Delete Exercise
+      </button>
     </form>
-</div>
+  </div>
+  
+  <!-- Success Modal -->
+  <div class="ui small modal" id="successModal">
+    <div class="header">Success</div>
+    <div class="content">
+      <p>Exercise deleted successfully!</p>
+    </div>
+    <div class="actions">
+      <div class="ui positive right labeled icon button" (click)="closeModal('successModal')">
+        OK
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Error Modal -->
+  <div class="ui small modal" id="errorModal">
+    <div class="header">Error</div>
+    <div class="content">
+      <p>Failed to delete exercise. Please try again.</p>
+    </div>
+    <div class="actions">
+      <div class="ui negative right labeled icon button" (click)="closeModal('errorModal')">
+        OK
+        <i class="times icon"></i>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Confirmation Modal -->
+  <div class="ui small modal" id="confirmModal">
+    <div class="header">Confirm Deletion</div>
+    <div class="content">
+      <p>Are you sure you want to delete the exercise "{{ exerciseNameToDelete }}"?</p>
+    </div>
+    <div class="actions">
+      <div class="ui negative button" (click)="closeModal('confirmModal')">Cancel</div>
+      <div class="ui positive right labeled icon button" (click)="deleteExerciseConfirmed()">
+        Delete
+        <i class="trash icon"></i>
+      </div>
+    </div>
+  </div>
+  

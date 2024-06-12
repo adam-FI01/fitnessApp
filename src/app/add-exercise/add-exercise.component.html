@@ -1,25 +1,53 @@
-<div class="container mt-5">
-  <div class="card shadow-lg p-4 rounded">
-    <h2 class="mb-4 text-center">Add Exercise</h2>
-    <form (ngSubmit)="addExercise()" #exerciseForm="ngForm" class="text-center">
-      <div class="form-group mb-3 labelAndInput">
-        <label for="exerciseName" class="form-label">Exercise Name</label>
-        <input 
-          type="text" 
-          id="exerciseName" 
-          name="exerciseName" 
-          class="form-control" 
-          [(ngModel)]="exerciseName" 
-          required
-        >
-      </div>
-      <button 
-        type="submit" 
-        class="btn btn-primary w-100 submitButton"
-        [disabled]="!exerciseForm.form.valid"
+<div id="addExerciseForm" class="ui container">
+  <span class="updateHeader">Add Exercise</span>
+  <form (ngSubmit)="addExercise()" #exerciseForm="ngForm" class="ui form">
+    <div class="field">
+      <label class="inputHeader" for="exerciseName">Exercise Name:*</label>
+      <input 
+        type="text" 
+        id="exerciseName" 
+        name="exerciseName" 
+        class="form-control" 
+        [(ngModel)]="exerciseName" 
+        required
       >
-        Add Exercise
-      </button>
-    </form>
+    </div>
+
+    <button 
+      class="ui fluid large primary button" 
+      type="submit" 
+      [disabled]="!exerciseForm.form.valid"
+    >
+      Add Exercise
+    </button>
+    <span class="terms">Fields with asterisks(*) are required for submission.</span>
+  </form>
+</div>
+
+<!-- Success Modal -->
+<div class="ui small modal" id="successModal">
+  <div class="header">Success</div>
+  <div class="content">
+    <p>Exercise added successfully!</p>
+  </div>
+  <div class="actions">
+    <div class="ui positive right labeled icon button" (click)="closeModal('successModal')">
+      OK
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>
+
+<!-- Error Modal -->
+<div class="ui small modal" id="errorModal">
+  <div class="header">Error</div>
+  <div class="content">
+    <p>Failed to add exercise. Please try again.</p>
+  </div>
+  <div class="actions">
+    <div class="ui negative right labeled icon button" (click)="closeModal('errorModal')">
+      OK
+      <i class="times icon"></i>
+    </div>
   </div>
 </div>

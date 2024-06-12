@@ -97,3 +97,50 @@ h2 {
     max-width: 75rem; /* Ensure it takes most of the screen width */
   }
 }
+
+/* Additional CSS for AddExerciseComponent */
+#addExerciseForm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+  margin-top: 4rem;
+}
+
+.updateHeader {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 25px;
+  margin-bottom: 1rem;
+}
+
+#addExerciseForm .ui.container {
+  width: 100%;
+  max-width: 400px;
+}
+
+label {
+  color: white !important;
+}
+
+.ui.form {
+  width: 100%;
+}
+
+.ui.form .field {
+  margin-bottom: 1rem;
+}
+
+.ui.form .ui.dropdown {
+  width: 100%;
+}
+
+.ui.button {
+  margin-top: 1rem;
+}
+
+.terms {
+  color: white !important;
+  font-size: 10px !important;
+}

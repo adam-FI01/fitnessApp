@@ -1,17 +1,26 @@
 #updateForm {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     padding: 1rem;
     margin-top: 4rem;
+  }
+  
+  .updateHeader {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 25px;
+    margin-bottom: 1rem;
   }
   
   #updateForm .ui.container {
     width: 100%;
     max-width: 400px;
   }
-
+  
   label {
-    color: white;
+    color: white !important;
   }
   
   .ui.form {
@@ -30,27 +39,22 @@
     margin-top: 1rem;
   }
   
-  /* input[type='number'] {
-    -moz-appearance: textfield;
-    appearance: none;
+  .terms {
+    color: white !important;
+    font-size: 10px !important;
+  }
   
-    &::-webkit-inner-spin-button { 
-      -webkit-appearance: none;
-      margin: 0;
-    }
-  } */
-
-  /* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
+  /* Disable number input spinners for all browsers */
+  .no-spinners::-webkit-outer-spin-button,
+  .no-spinners::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  .no-spinners {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
   
   @media only screen and (max-width: 767px) {
     #updateForm .ui.container {

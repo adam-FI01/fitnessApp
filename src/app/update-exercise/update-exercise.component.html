@@ -1,36 +1,101 @@
 <div id="updateForm" class="ui container">
+  <span class="updateHeader">Update Your Exercise</span>
   <form [formGroup]="exerciseForm" (ngSubmit)="onSubmit()" class="ui form">
-    <div class="ui fluid selection dropdown">
-      <input type="hidden" formControlName="exercise">
-      <i class="dropdown icon"></i>
-      <div class="default text">Select Exercise</div>
-      <div class="menu">
-        <div 
-          class="item" 
-          *ngFor="let exercise of exercises" 
-          [attr.data-value]="exercise"
-          (click)="exerciseForm.controls['exercise'].setValue(exercise)"
-        >
-          {{ exercise }}
+    <div class="field">
+      <label class="inputHeader">Select Exercise:*</label>
+      <div class="ui fluid selection dropdown">
+        <input type="hidden" formControlName="exercise">
+        <i class="dropdown icon"></i>
+        <div class="default text">Select Exercise</div>
+        <div class="menu">
+          <div 
+            class="item" 
+            *ngFor="let exercise of exercises" 
+            [attr.data-value]="exercise"
+            (click)="exerciseForm.controls['exercise'].setValue(exercise)"
+          >
+            {{ exercise }}
+          </div>
         </div>
       </div>
     </div>
 
     <div class="field">
-      <label class="inputHeader" for="repsInput">Reps:</label>
-      <input type="number" id="repsInput" formControlName="reps" placeholder="Enter number of reps">
+      <label class="inputHeader" for="repsInput">Reps:*</label>
+      <input type="number" id="repsInput" formControlName="reps" placeholder="Enter number of reps" class="no-spinners">
     </div>
 
     <div class="field">
-      <label class="inputHeader" for="weightInput">Weight (lbs):</label>
+      <label class="inputHeader" for="weightInput">Weight (lbs):*</label>
       <div class="ui right labeled input">
-        <input type="number" id="weightInput" formControlName="weight" placeholder="Enter weight...">
+        <input type="number" id="weightInput" formControlName="weight" placeholder="Enter weight" class="no-spinners">
         <div class="ui basic label">
           lbs
         </div>
       </div>
     </div>
 
+    <div class="field">
+      <label class="inputHeader">Select Intensity:*</label>
+      <div class="ui fluid selection dropdown">
+        <input type="hidden" formControlName="intensity">
+        <i class="dropdown icon"></i>
+        <div class="default text">Select Intensity</div>
+        <div class="menu">
+          <div 
+            class="item" 
+            data-value="easy"
+            (click)="exerciseForm.controls['intensity'].setValue('easy')"
+          >
+            Easy
+          </div>
+          <div 
+            class="item" 
+            data-value="medium"
+            (click)="exerciseForm.controls['intensity'].setValue('medium')"
+          >
+            Medium
+          </div>
+          <div 
+            class="item" 
+            data-value="hard"
+            (click)="exerciseForm.controls['intensity'].setValue('hard')"
+          >
+            Hard
+          </div>
+        </div>
+      </div>
+    </div>
+
     <button class="ui fluid large primary button" type="submit" [disabled]="!exerciseForm.valid">Submit Set</button>
+    <span class="terms">Fields with asterisks(*) are required for submission.</span>
   </form>
+</div>
+
+<!-- Success Modal -->
+<div class="ui small modal" id="successModal">
+  <div class="header">Success</div>
+  <div class="content">
+    <p>Your exercise has been successfully updated!</p>
+  </div>
+  <div class="actions">
+    <div class="ui positive right labeled icon button" (click)="closeModal('successModal')">
+      OK
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>
+
+<!-- Error Modal -->
+<div class="ui small modal" id="errorModal">
+  <div class="header">Error</div>
+  <div class="content">
+    <p>There was an error updating your exercise. Please try again.</p>
+  </div>
+  <div class="actions">
+    <div class="ui negative right labeled icon button" (click)="closeModal('errorModal')">
+      OK
+      <i class="times icon"></i>
+    </div>
+  </div>
 </div>

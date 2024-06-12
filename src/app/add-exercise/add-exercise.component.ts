@@ -1,15 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { AddExerciseService } from './add-exercise.service';
+
+declare var $: any; // Declare jQuery to access Semantic UI functions
 
 @Component({
   selector: 'app-add-exercise',
   templateUrl: './add-exercise.component.html',
   styleUrls: ['./add-exercise.component.scss']
 })
-export class AddExerciseComponent {
+export class AddExerciseComponent implements AfterViewInit {
   exerciseName: string = '';
 
   constructor(private addExerciseService: AddExerciseService) {}
+
+  ngAfterViewInit(): void {
+    $('.ui.modal').modal();
+  }
 
   addExercise(): void {
     if (!this.exerciseName.trim()) {
@@ -22,13 +28,21 @@ export class AddExerciseComponent {
         () => {
           // Clear the form after successful addition
           this.exerciseName = '';
-          alert('Exercise added successfully!');
+          this.openModal('successModal');
         },
         error => {
           console.error('Error adding exercise:', error);
           // Handle error here, e.g., display error message
-          alert('Failed to add exercise. Please try again.');
+          this.openModal('errorModal');
         }
       );
+  }
+
+  openModal(modalId: string): void {
+    $(`#${modalId}`).modal('show');
+  }
+
+  closeModal(modalId: string): void {
+    $(`#${modalId}`).modal('hide');
   }
 }
