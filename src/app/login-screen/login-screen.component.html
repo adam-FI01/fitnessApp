@@ -66,3 +66,17 @@
     </div>
   </div>
   
+  <!-- Error Modal -->
+  <div class="ui small modal" id="errorModal">
+    <div class="header">Login Error</div>
+    <div class="content">
+      <p>Invalid credentials. Please try again.</p>
+    </div>
+    <div class="actions">
+      <div class="ui negative right labeled icon button" (click)="closeModal('errorModal')">
+        OK
+        <i class="times icon"></i>
+      </div>
+    </div>
+  </div>
+  

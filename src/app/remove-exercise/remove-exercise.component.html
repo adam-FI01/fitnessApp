@@ -2,7 +2,7 @@
     <span class="updateHeader">Delete Exercise</span>
     <form [formGroup]="deleteForm" (ngSubmit)="confirmDeletion()" class="ui form">
       <div class="field">
-        <label class="inputHeader" for="exerciseToDelete">Select Exercise to Delete:</label>
+        <label class="inputHeader" for="exerciseToDelete">Select Exercise to Delete:*</label>
         <div class="ui fluid selection dropdown">
           <input type="hidden" formControlName="exerciseToDelete" id="exerciseToDelete">
           <i class="dropdown icon"></i>
@@ -27,6 +27,7 @@
       >
         Delete Exercise
       </button>
+      <span class="terms">Fields with asterisks(*) are required for submission.</span>
     </form>
   </div>
   
