@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewStatsWeeklyService } from './view-stats-weekly.service';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-view-stats-weekly',
@@ -11,7 +12,7 @@ export class ViewStatsWeeklyComponent implements OnInit {
   selectedExercise: string = this.exercises[0];
   showWeekly: any[] = [];
 
-  constructor(private viewStatsWeeklyService: ViewStatsWeeklyService) {}
+  constructor(private viewStatsWeeklyService: ViewStatsWeeklyService, private homeComponent: HomeComponent) {}
 
   ngOnInit(): void {
     this.loadWeeklyStats();
