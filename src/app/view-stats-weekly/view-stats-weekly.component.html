@@ -1,1 +1,6 @@
-<p>view-stats-weekly works!</p>
+<select (change)="onExerciseChange($event)">
+    <option *ngFor="let exercise of exercises" [value]="exercise">{{ exercise }}</option>
+  </select>
+  
+  <app-reusable-table [data]="showWeekly"></app-reusable-table>
+  

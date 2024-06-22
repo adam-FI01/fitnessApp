@@ -29,10 +29,9 @@ const routes: Routes = [
         path: 'view-stats',
         component: ViewStatsComponent,
         children: [
-          { path: ':exercise/daily', component: ViewStatsComponent },
-          { path: ':exercise/weekly', component: ViewStatsWeeklyComponent },
-          { path: ':exercise/monthly', component: ViewStatsMonthlyComponent },
-          { path: ':exercise/all-time', component: ViewStatsAllTimeComponent },
+          { path: 'view-stats-weekly', component: ViewStatsWeeklyComponent },
+          { path: 'view-stats-monthly', component: ViewStatsMonthlyComponent },
+          { path: 'view-stats-allTime', component: ViewStatsAllTimeComponent },
         ]
       },
     ]

@@ -11,10 +11,10 @@
         <div class="text">{{ exercise }}</div>
         <i class="dropdown icon"></i>
         <div class="menu">
-          <a class="item" [routerLink]="['view-stats', exercise, 'daily']" routerLinkActive="active">Daily</a>
-          <a class="item" [routerLink]="['view-stats', exercise, 'weekly']" routerLinkActive="active">Weekly</a>
-          <a class="item" [routerLink]="['view-stats', exercise, 'monthly']" routerLinkActive="active">Monthly</a>
-          <a class="item" [routerLink]="['view-stats', exercise, 'all-time']" routerLinkActive="active">All Time</a>
+          <a class="item" [routerLink]="['view-stats']" routerLinkActive="active">View Stats</a>
+          <a class="item" [routerLink]="['view-stats/view-stats-weekly']" routerLinkActive="active">View Stats Weekly</a>
+          <a class="item" [routerLink]="['view-stats/view-stats-monthly']" routerLinkActive="active">View Stats Monthly</a>
+          <a class="item" [routerLink]="['view-stats/view-stats-allTime']" routerLinkActive="active">View Stats All Time</a>
         </div>
       </div>
     </div>
