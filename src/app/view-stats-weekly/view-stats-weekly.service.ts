@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { AuthService } from '../auth.service'; // Adjust the path as necessary
+import { UpdateExerciseService } from '../update-exercise/update-exercise.service';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,5 @@ export class ViewStatsWeeklyService {
         return throwError(error);
       })
     );
-  }
-  
+  }  
 }

@@ -1,6 +1,11 @@
-<select (change)="onExerciseChange($event)">
-    <option *ngFor="let exercise of exercises" [value]="exercise">{{ exercise }}</option>
-  </select>
+<div class="ui selection dropdown" id="exerciseDropdown">
+    <input type="hidden" name="exercise">
+    <i class="dropdown icon"></i>
+    <div class="default text">Select Exercise</div>
+    <div class="menu">
+      <div class="item" *ngFor="let exercise of exercises" [attr.data-value]="exercise">{{ exercise }}</div>
+    </div>
+  </div>
   
   <app-reusable-table [data]="showWeekly"></app-reusable-table>
   
