@@ -1,24 +1,13 @@
-<!-- <div class="card" *ngIf="showChartDaily">
-    <p-table [value]="customers" [scrollable]="true" scrollHeight="400px" [tableStyle]="{'min-width': '50rem'}">
-        <ng-template pTemplate="header">
-            <tr>
-                <th>Date</th>
-                <th>Rep</th>
-                <th>Weight</th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-customer>
-            <tr>
-                <td>{{customer.Date}}</td>
-                <td>{{customer.Reps}}</td>
-                <td>{{customer.Weight}}</td>
-            </tr>
-        </ng-template>
-    </p-table>
-</div> -->
-<app-reusable-table *ngIf="showChartDaily" [data]="customers"></app-reusable-table>
+<div class="ui selection dropdown" id="exerciseDropdown">
+    <input type="hidden" name="exercise">
+    <i class="dropdown icon"></i>
+    <div class="default text">Select Exercise</div>
+    <div class="menu">
+      <div class="item" *ngFor="let exercise of exercises" [attr.data-value]="exercise">{{ exercise }}</div>
+    </div>
+  </div>
+  
+  <app-reusable-table [data]="showDaily"></app-reusable-table>
+  
 
 
-<app-view-stats-weekly *ngIf="showChartWeekly"></app-view-stats-weekly>
-<app-view-stats-monthly *ngIf="showChartMonthly"></app-view-stats-monthly>
-<app-view-stats-all-time *ngIf="showChartAllTime"></app-view-stats-all-time>

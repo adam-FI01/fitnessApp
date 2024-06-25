@@ -25,15 +25,10 @@ const routes: Routes = [
       { path: 'add-exercise', component: AddExerciseComponent },
       { path: 'remove-exercise', component: RemoveExerciseComponent },
       { path: 'update-exercise', component: UpdateExerciseComponent },
-      {
-        path: 'view-stats',
-        component: ViewStatsComponent,
-        children: [
-          { path: 'view-stats-weekly', component: ViewStatsWeeklyComponent },
-          { path: 'view-stats-monthly', component: ViewStatsMonthlyComponent },
-          { path: 'view-stats-allTime', component: ViewStatsAllTimeComponent },
-        ]
-      },
+      { path: 'view-stats', component: ViewStatsComponent },
+      { path: 'view-stats-weekly', component: ViewStatsWeeklyComponent },
+      { path: 'view-stats-monthly', component: ViewStatsMonthlyComponent },
+      { path: 'view-stats-allTime', component: ViewStatsAllTimeComponent },
     ]
   },
 ];

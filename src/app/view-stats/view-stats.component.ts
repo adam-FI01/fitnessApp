@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ViewStatsService } from './view-stats.service';
+import { UpdateExerciseService } from '../update-exercise/update-exercise.service';
+
+declare var $: any; // Declare $ for jQuery usage
 
 @Component({
   selector: 'app-view-stats',
@@ -7,104 +11,72 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./view-stats.component.scss']
 })
 export class ViewStatsComponent {
-  customers: any;
-  showChartDaily: boolean = false;
-  showChartWeekly: boolean = false;
-  showChartMonthly: boolean = false;
-  showChartAllTime: boolean = false;
+  exercises: string[] = [];
+  selectedExercise: string = '';
+  showDaily: any[] = [];
 
-  constructor(private router: Router, private route: ActivatedRoute) {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.setChartVisibility();
-      }
-    });
+  constructor(
+    private ViewStatsService: ViewStatsService,
+    private updateExerciseService: UpdateExerciseService
+  ) {}
 
-    // Initialize the visibility based on the initial route
-    this.setChartVisibility();
-    console.log(this.route)
-
-    this.customers = [
-      {
-        Exercise: 'Squats',
-        Date: '12/17/2022',
-        Weight: '140',
-        Reps: '12',
-      },
-      {
-        Exercise: 'Push-ups',
-        Date: '12/17/2022',
-        Weight: 'n/a',
-        Reps: '15',
-      },
-      {
-        Exercise: 'Bench Press',
-        Date: '12/18/2022',
-        Weight: '175',
-        Reps: '10',
-      },
-      {
-        Exercise: 'Squats',
-        Date: '12/17/2022',
-        Weight: '140',
-        Reps: '12',
-      },
-      {
-        Exercise: 'Push-ups',
-        Date: '12/17/2022',
-        Weight: 'n/a',
-        Reps: '15',
-      },
-      {
-        Exercise: 'Bench Press',
-        Date: '12/18/2022',
-        Weight: '175',
-        Reps: '10',
-      },
-      {
-        Exercise: 'Squats',
-        Date: '12/17/2022',
-        Weight: '140',
-        Reps: '12',
-      },
-      {
-        Exercise: 'Push-ups',
-        Date: '12/17/2022',
-        Weight: 'n/a',
-        Reps: '15',
-      },
-      {
-        Exercise: 'Bench Press',
-        Date: '12/18/2022',
-        Weight: '175',
-        Reps: '10',
-      },
-    ]; 
+  ngOnInit(): void {
+    this.getExercises();
   }
 
-  private setChartVisibility() {
-    const fullUrl = this.router.url;
-    console.log(fullUrl);
-  
-    // Reset all visibility properties to false
-    this.showChartDaily = false;
-    this.showChartWeekly = false;
-    this.showChartMonthly = false;
-    this.showChartAllTime = false;
-  
-    // Set visibility based on the current route
-    switch (fullUrl) {
-      case '/home/view-stats/view-stats-weekly':
-        this.showChartWeekly = true;
-        break;
-      case '/home/view-stats/view-stats-monthly':
-        this.showChartMonthly = true;
-        break;
-      case '/home/view-stats/view-stats-allTime':
-        this.showChartAllTime = true;
-        break;
-      default:
-        this.showChartDaily = true;
-    }
+  ngAfterViewInit(): void {
+    this.initializeDropdown();
+  }
+
+  ngOnDestroy(): void {
+    // Proper cleanup of the Semantic UI dropdown
+    $('#exerciseDropdown').off('change');
+  }
+
+  initializeDropdown(): void {
+    $('#exerciseDropdown').dropdown({
+      onChange: (value: string) => {
+        this.onExerciseChange(value);
+      }
+    });
+  }
+
+  onExerciseChange(value: string): void {
+    this.selectedExercise = value;
+    this.loadDailyStats();
+  }
+
+  loadDailyStats(): void {
+    if (!this.selectedExercise) return;
+
+    this.ViewStatsService.getDailyStats(this.selectedExercise).subscribe(data => {
+      this.showDaily = data.map((item: any) => {
+        const timestamp = parseInt(item._id.substring(0, 8), 16) * 1000;
+        return {
+          Exercise: this.selectedExercise,
+          Date: new Date(timestamp).toLocaleDateString(),
+          Weight: item.weight,
+          Reps: item.reps,
+          Intensity: item.intensity
+        };
+      });
+    });
+  }
+
+  getExercises(): void {
+    this.updateExerciseService.getExercises().subscribe(
+      exercises => {
+        if (Array.isArray(exercises)) {
+          this.exercises = exercises.filter(exercise => exercise !== null);
+          setTimeout(() => {
+            $('#exerciseDropdown').dropdown('refresh'); // Refresh dropdown after data is loaded
+          });
+        } else {
+          console.error('Received exercises is not an array:', exercises);
+          this.exercises = [];
+        }
+      },
+      error => console.error('Error fetching exercises: ', error)
+    );
   }
 }
