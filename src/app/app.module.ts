@@ -22,6 +22,7 @@ import { ViewStatsMonthlyComponent } from './view-stats-monthly/view-stats-month
 import { ViewStatsWeeklyComponent } from './view-stats-weekly/view-stats-weekly.component';
 import { ViewStatsAllTimeComponent } from './view-stats-all-time/view-stats-all-time.component';
 import { ReusableTableComponent } from './reusable-table/reusable-table.component';
+import { ChartStatsWeeklyComponent } from './chart-stats-weekly/chart-stats-weekly.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ReusableTableComponent } from './reusable-table/reusable-table.componen
     ViewStatsWeeklyComponent,
     ViewStatsAllTimeComponent,
     ReusableTableComponent,
+    ChartStatsWeeklyComponent,
   ],
   imports: [
     BrowserModule,

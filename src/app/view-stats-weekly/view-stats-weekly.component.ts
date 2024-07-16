@@ -13,6 +13,7 @@ export class ViewStatsWeeklyComponent implements OnInit, AfterViewInit, OnDestro
   exercises: string[] = [];
   selectedExercise: string = '';
   showWeekly: any[] = [];
+  showGraphComponent: boolean = false;
 
   constructor(
     private viewStatsWeeklyService: ViewStatsWeeklyService,
@@ -77,5 +78,10 @@ export class ViewStatsWeeklyComponent implements OnInit, AfterViewInit, OnDestro
       },
       error => console.error('Error fetching exercises: ', error)
     );
+  }
+
+  // Toggle the visibility of the ChartStatsWeeklyComponent
+  toggleGraph(): void {
+    this.showGraphComponent = !this.showGraphComponent;
   }
 }

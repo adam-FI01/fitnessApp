@@ -10,8 +10,13 @@
     </div>
   </div>
   <div class="item">
-    <button class="ui primary button">Show Graph</button>
+    <button class="ui primary button" (click)="toggleGraph()">
+      {{ showGraphComponent ? 'Hide Graph' : 'Show Graph' }}
+    </button>
   </div>
 </div>
 
+<app-chart-stats-weekly *ngIf="showGraphComponent"></app-chart-stats-weekly>
 <app-reusable-table [data]="showWeekly"></app-reusable-table>
+
+
