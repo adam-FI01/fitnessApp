@@ -4,3 +4,19 @@
         max-width: 40rem;
     }
 }
+
+.ui.menu {
+    .item {
+      display: flex;
+      align-items: center;
+    }
+  
+    .ui.dropdown {
+      margin-right: 15px; // Adjust the spacing between the dropdown and the button
+    }
+  
+    .ui.button {
+      margin-left: auto; // Push the button to the far right
+    }
+  }
+  

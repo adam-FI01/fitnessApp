@@ -1,11 +1,18 @@
-<div class="ui selection dropdown" id="exerciseDropdown">
-    <input type="hidden" name="exercise">
-    <i class="dropdown icon"></i>
-    <div class="default text">Select Exercise</div>
-    <div class="menu">
-      <div class="item" *ngFor="let exercise of exercises" [attr.data-value]="exercise">{{ exercise }}</div>
+<div class="ui menu">
+  <div class="item">
+    <div class="ui selection dropdown" id="exerciseDropdown">
+      <input type="hidden" name="exercise">
+      <i class="dropdown icon"></i>
+      <div class="default text">Select Exercise</div>
+      <div class="menu">
+        <div class="item" *ngFor="let exercise of exercises" [attr.data-value]="exercise">{{ exercise }}</div>
+      </div>
     </div>
   </div>
+  <div class="item">
+    <button class="ui primary button">Show Graph</button>
+  </div>
+</div>
   
   <app-reusable-table [data]="showDaily"></app-reusable-table>
   
