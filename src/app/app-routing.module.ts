@@ -23,7 +23,6 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: 'add-exercise', component: AddExerciseComponent },
-      { path: 'remove-exercise', component: RemoveExerciseComponent },
       { path: 'update-exercise', component: UpdateExerciseComponent },
       { path: 'view-stats', component: ViewStatsComponent },
       { path: 'view-stats-weekly', component: ViewStatsWeeklyComponent },

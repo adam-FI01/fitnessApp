@@ -1,6 +1,5 @@
-<div class="ui four item menu">
-  <a class="item" [routerLink]="['add-exercise']" routerLinkActive="active">Add Exercise</a>
-  <a class="item" [routerLink]="['remove-exercise']" routerLinkActive="active">Remove Exercise</a>
+<div class="ui three item menu">
+  <a class="item" [routerLink]="['add-exercise']" routerLinkActive="active">Add/Remove Exercise</a>
   <a class="item" [routerLink]="['update-exercise']" routerLinkActive="active">Update Exercise</a>
 
   <div class="ui dropdown item" (click)="getExercises()">
@@ -19,82 +18,3 @@
   <router-outlet name="menuOutlet"></router-outlet>
   <router-outlet></router-outlet>
 </div>
-
-
-<!--  <div class="ui four item menu">
-  <a class="item" [routerLink]="['add-exercise']" routerLinkActive="active">Add Exercise</a>
-  <a class="item" [routerLink]="['remove-exercise']" routerLinkActive="active">Remove Exercise</a>
-  <a class="item" [routerLink]="['update-exercise']" routerLinkActive="active">Update Exercise</a>
-
-  <div class="ui dropdown item">
-    <div class="text">View Stats</div>
-    <i class="dropdown icon"></i>
-    <div class="menu">
-      <div class="ui dropdown item">
-        <i class="dropdown icon"></i>
-        View Stats Weekly
-        <div class="menu">
-          <a class="item" *ngFor="let exercise of exercises" [routerLink]="['view-stats/view-stats-weekly']" routerLinkActive="active">{{exercise}}</a>
-        </div>
-      </div>
-      <div class="ui dropdown item">
-        <i class="dropdown icon"></i>
-        View Stats Monthly
-        <div class="menu">
-          <a class="item" *ngFor="let exercise of exercises" [routerLink]="['view-stats/view-stats-monthly']" routerLinkActive="active">{{exercise}}</a>
-        </div>
-      </div>
-      <div class="ui dropdown item">
-        <i class="dropdown icon"></i>
-        View Stats All Time
-        <div class="menu">
-          <a class="item" *ngFor="let exercise of exercises" [routerLink]="['view-stats/view-stats-allTime']" routerLinkActive="active">{{exercise}}</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="content">
-  <router-outlet name="menuOutlet"></router-outlet>
-  <router-outlet></router-outlet>
-</div> -->
-
-<!-- <div class="ui four item menu">
-  <a class="item" [routerLink]="['add-exercise']" routerLinkActive="active">Add Exercise</a>
-  <a class="item" [routerLink]="['remove-exercise']" routerLinkActive="active">Remove Exercise</a>
-  <a class="item" [routerLink]="['update-exercise']" routerLinkActive="active">Update Exercise</a>
-
-  <div class="ui dropdown item">
-    <div class="text">View Stats</div>
-    <i class="dropdown icon"></i>
-    <div class="menu">
-      <div class="ui dropdown item">
-        <i class="dropdown icon"></i>
-        View Stats Weekly
-        <div class="menu">
-          <a class="item" *ngFor="let exercise of exercises" (click)="selectExercise(exercise)" [routerLink]="['view-stats/view-stats-weekly']" routerLinkActive="active">{{exercise}}</a>
-        </div>
-      </div>
-      <div class="ui dropdown item">
-        <i class="dropdown icon"></i>
-        View Stats Monthly
-        <div class="menu">
-          <a class="item" *ngFor="let exercise of exercises" (click)="selectExercise(exercise)" [routerLink]="['view-stats/view-stats-monthly']" routerLinkActive="active">{{exercise}}</a>
-        </div>
-      </div>
-      <div class="ui dropdown item">
-        <i class="dropdown icon"></i>
-        View Stats All Time
-        <div class="menu">
-          <a class="item" *ngFor="let exercise of exercises" (click)="selectExercise(exercise)" [routerLink]="['view-stats/view-stats-allTime']" routerLinkActive="active">{{exercise}}</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="content">
-  <router-outlet name="menuOutlet"></router-outlet>
-  <router-outlet></router-outlet>
-</div> -->
