@@ -1,18 +1,21 @@
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Weight</th>
-      <th>Reps</th>
-      <th>Intensity</th> <!-- Add Intensity column -->
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of data">
-      <td>{{ item.Date }}</td>
-      <td>{{ item.Weight }}</td>
-      <td>{{ item.Reps }}</td>
-      <td>{{ item.Intensity }}</td> <!-- Add Intensity data -->
-    </tr>
-  </tbody>
-</table>
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let item of data" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-description class="panel-description">
+        Date: {{ item.Date }}
+      </mat-panel-description>
+      <mat-panel-description class="panel-description">
+        Weight: {{ item.Weight }} lbs
+      </mat-panel-description>
+      <mat-panel-description class="panel-description">
+      Reps: {{ item.Reps }} 
+      </mat-panel-description>
+      <mat-panel-description class="panel-description">
+       Intensity: {{ item.Intensity }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>    
+    <div>
+      <app-chart-stats-weekly></app-chart-stats-weekly>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

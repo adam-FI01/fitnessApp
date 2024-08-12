@@ -1,5 +1,6 @@
 import { NgModule, forwardRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +24,8 @@ import { ViewStatsWeeklyComponent } from './view-stats-weekly/view-stats-weekly.
 import { ViewStatsAllTimeComponent } from './view-stats-all-time/view-stats-all-time.component';
 import { ReusableTableComponent } from './reusable-table/reusable-table.component';
 import { ChartStatsWeeklyComponent } from './chart-stats-weekly/chart-stats-weekly.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatExpansionModule } from '@angular/material/expansion'; // Import for mat-accordion and mat-expansion-panel
 
 @NgModule({
   declarations: [
@@ -49,8 +52,12 @@ import { ChartStatsWeeklyComponent } from './chart-stats-weekly/chart-stats-week
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    MatSlideToggleModule,
     TableModule,
-    ButtonModule
+    ButtonModule,
+    BrowserAnimationsModule,
+    MatExpansionModule,
+    BrowserAnimationsModule,
   ],
   providers: [
      {provide: NG_VALUE_ACCESSOR,
